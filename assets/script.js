@@ -1,19 +1,77 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
+//Make employees into an empty array that will be added to with prompts
+let  employees = []
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
+  //Create a loop
+  while (employees) {
+    //Create an object array containing First Name, Last Name, and Salary for each new employee added
+   let employee = {
+    firstName: "",
+    lastName: "", 
+    salary: 0
+   }
+   //Prompts to add First Name, Last Name, and Salary to current employee array index
+   employee.firstName = prompt("Enter First Name:");
+   employee.lastName = prompt("Enter Last Name:");
+   employee.salary = prompt("Enter Salary:");
+  
+   //If something other than a number is inputted on the salary prompt
+   if (isNaN(employee.salary)) {
+    //Alert that what was inputted was not a number
+    alert("Not a number");
+    //Change what was input to 0
+    employee.salary=0;
+   }
+
+   //Add employee info to the database
+   employees.push(employee);
+
+   //Ask to add another employee
+   const addEmployee = confirm("Would you like to add another employee?");
+
+   //Condition statement based on what was clicked on the last prompt
+   //If click "ok"
+   if (addEmployee) {
+    //Direct to start the loop over again
+    collectEmployees;
+  //If click cancel
+   } else {
+    //Stop the loop
+    break;
+   }
+
+  }
+
+  //Employee info shows up on the table
+  return employees;
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  /*
+  let sum = 0;
+  for (let i = 0; i < employees.length; i++){
+  
+  }
+
+  const average = sum / employees.length;
+  console.log(average);
+    */
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+
+  /*
+  const options = employees.salary;
+  const randomEmployee = options[Math.floor(Math.random() * employees.length)];
+  */
 }
 
 /*
