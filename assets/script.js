@@ -40,14 +40,12 @@ const collectEmployees = function() {
     collectEmployees;
   //If click cancel
    } else {
-    //Stop the loop
-    break;
+    //Stop the loop and employee info shows up on the table
+    return employees;
    }
 
   }
 
-  //Employee info shows up on the table
-  return employees;
 }
 
 // Display the average salary
